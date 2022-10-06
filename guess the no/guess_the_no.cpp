@@ -11,26 +11,36 @@ int random()
 
 int main()
 {
-    while(1){
-    int num,y,life=3;
+    int num=11;
+    while(num!=0){
+    int y,life=3;
     y=random();
     //cout<<y<<"\n";
-    cout<<"<-------Welcome to Guess the Number Game------->"<<"\n";
-    cout<<"To start this game plaese choose any number between 1 to 10 : ";
+    cout<<"\n\n<-------Welcome to Guess the Number Game------->"<<"\n";
+    cout<<"\nTo start this game plaese choose any number between 1 to 10 (0 to exit the game): ";
     cin>>num;
+    if(num==0)
+    {
+        cout<<"\nThank you for playing!!!";
+        break;
+    }
     while (life)
     {   
         
         if(num==y){
-            cout<<"Perfect\n";
+            cout<<"\nPerfect\n";
             life=0;
         }
         else{
-            cout<<"Oops wrong selection\t\t";
-            cout<<"You have "<<life<<" lifes left \n";
-            cout<<"Again select any number between 1 to 10 :";
-            cin>>num;
             life--;
+            cout<<"\nOops wrong selection\t\t";
+            cout<<"You have "<<life<<" lifes left \n";
+            if(life==0)
+            {
+                continue;
+            }
+            cout<<"\n\nAgain select any number between 1 to 10 :";
+            cin>>num;
         }
         
     }
